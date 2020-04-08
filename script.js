@@ -117,7 +117,7 @@ function createPostElement(post){
   elem.classList.add('card');
   elem.classList.add('my-3');
   elem.innerHTML = 
-  '<div>' +
+  '<div id= "cat2" >' +
     '<img class="d-block w-100" src="' + post.image + '" alt="Post image">' +
   '</div>' +
     '<div class="px-4 py-3">' +
@@ -168,30 +168,28 @@ document.getElementById('comments').append(createCommentElement(comment));
 
 ////////////////////////////////////// homework59
 
-// let img = document.getElementById('image');
-// console.log(img);
-// img.addEventListener('dblclick', likes);
-
-
-
-
-const options = document.getElementById('options').firstElementChild;
-console.log(options);
-options.addEventListener('click' ,likes );
+let img = document.getElementById('image');
+console.log(img);
+img.addEventListener('dblclick', likes);
 
 function likes(){
-  this.style.color = (this.style.color == 'red') ? 'black' : "red";
+  const options = document.getElementById('options').firstElementChild;
+  console.log(options);
+  // options.addEventListener('click' ,likes );
+  options.style.color = (options.style.color == 'red') ? 'black' : "red";
   // options.innerHTML = '<span class="h1 mx-2 text-danger"><i class="fas fa-heart"></i></span>';
   // options.replaceWith(elem);
 }
 
 
-const option = document.getElementById('option2').firstElementChild;
-console.log(options);
-option.addEventListener('click', like2);
+let img2 = document.getElementById('cat2');
+img2.addEventListener('dblclick',like2);
 
 function like2(){
-  this.style.color = (this.style.color == "red") ? 'black' : 'red';
+  const option = document.getElementById('option2').firstElementChild;
+  console.log(options);
+  // option.addEventListener('click', like2);
+  option.style.color = (option.style.color == "red") ? 'black' : 'red';
 }
 
 
