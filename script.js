@@ -77,30 +77,31 @@ for(let i = 0; i < posts.length; i++) {
 //hiding and showing splash page and no-scroll
 
   // let catPage = document.querySelector(".no-scroll");
-  let logIn = document.querySelector(".page-splash");
+  // let logIn = document.querySelector(".page-splash");
   //   console.log(catPage);
 
-  let logHide = document.querySelector(".page-splash").hidden = false;
-  if(!logHide){
-      logIn.addEventListener("click", hideSplashScreen);
-  } 
+  // let logHide = document.querySelector(".page-splash").hidden = false;
+  // if(!logHide){
+  //     logIn.addEventListener("click", hideSplashScreen);
+  // } 
   // else {
   //   logIn.addEventListener("click", showSplashScreen);
   // }
 
+  const signIn= document.getElementById('button');
+  signIn.addEventListener('click', hideSplashScreen);
+
   
 function showSplashScreen(){
-  logIn.classList.add("page-slash").hidden = false;
-  let body = document.querySelector("body");
-  body.classList.add("no-scroll");
+  document.getElementById('page-splash').hidden = false;
+	document.body.classList.add('no-scroll');
 }
 
 // showSplashScreen();
 
 function hideSplashScreen(){
-    document.querySelector(".page-splash").hidden = true;
-    let body = document.querySelector("body");
-    body.classList.remove("no-scroll");
+    document.getElementById('page-splash').hidden = true;
+	document.body.classList.remove('no-scroll');
 }
 
 function createCommentElement(comment){
