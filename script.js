@@ -123,25 +123,25 @@ function createPostElement(post){
   '</div>' +
     '<div class="px-4 py-3">' +
     '<div id = "option2" class="d-flex justify-content-around">' +
-      '<span class="h1 mx-2 muted">' +
-      '<i class="fas fa-heart"></i>' +
-      '</span>' 
+      // '<span class="h1 mx-2 text-danger">' +
+      // '<i class="fas fa-heart"></i>' +
+      // '</span>' 
       // +
-      // '<span class="h1 mx-2 muted">' +
-      // '<i class="far fa-heart"></i>' +
-      // '</span>'
+      '<span class="h1 mx-2 muted">' +
+      '<i class="far fa-heart"></i>' +
+      '</span>'
        +
       '<span class="h1 mx-2 muted">' +
       '<i class="far fa-comment"></i>' +
       '</span>' +
       '<span class="mx-auto"></span>' +
-      // '<span class="h1 mx-2 muted">' +
-      // '<i class="far fa-bookmark"></i>' +
-      // '</span>'
-      //  +
       '<span class="h1 mx-2 muted">' +
-      '<i class="fas fa-bookmark"></i>' +
-      '</span>' +
+      '<i class="far fa-bookmark"></i>' +
+      '</span>'
+       +
+      // '<span class="h1 mx-2 muted">' +
+      // '<i class="fas fa-bookmark"></i>' +
+      // '</span>' +
     '</div>' +
   '<hr>' +
   '<div>' +
@@ -169,29 +169,55 @@ document.getElementById('comments').append(createCommentElement(comment));
 
 ////////////////////////////////////// homework59
 
-let img = document.getElementById('image');
-console.log(img);
-img.addEventListener('dblclick', likes);
+const hearts = document.getElementsByClassName('fa-heart');
+for(let i = 0; i < hearts.length; i++) {
+  console.log(hearts[i]);
+    hearts[i].addEventListener('click', function() {
+        if(hearts[i].classList.contains('fas')) {
+            hearts[i].classList.remove('fas');
+            hearts[i].classList.remove('text-danger');
+            hearts[i].classList.add('far');
+        } else {
+            hearts[i].classList.remove('far');
+            hearts[i].classList.add('text-danger');
+            hearts[i].classList.add('fas');
+        }
+    })
+};
 
-function likes(){
-  const options = document.getElementById('options').firstElementChild;
-  console.log(options);
-  // options.addEventListener('click' ,likes );
-  options.style.color = (options.style.color == 'red') ? 'black' : "red";
-  // options.innerHTML = '<span class="h1 mx-2 text-danger"><i class="fas fa-heart"></i></span>';
-  // options.replaceWith(elem);
+
+const bookmark = document.getElementsByClassName('fa-bookmark');
+for(let i=0; i< bookmark.length; i++){
+  bookmark[i].addEventListener('click',function(){
+    if(bookmark[i].classList.contains('fas')){
+        bookmark[i].classList.remove('fas');
+        bookmark[i].classList.add('far');
+    } else {
+        bookmark[i].classList.remove('far');
+        bookmark[i].classList.add('fas');
+    }
+  })
 }
 
+const postss = document.getElementsByClassName('card');
+for(let i = 0; i < postss.length; i++) {
+    let ims = postss[i].getElementsByClassName('w-100');
+    let he = postss[i].getElementsByClassName('fa-heart')[0];
+    for(let j = 0; j < ims.length; j++) {
+        ims[j].addEventListener('dblclick', function() {
+          if(he.classList.contains('fas')) {
+            he.classList.remove('fas');
+            he.classList.remove('text-danger');
+            he.classList.add('far');
+           } else {
+            he.classList.remove('far');
+            he.classList.add('text-danger');
+            he.classList.add('fas');
+           }
+        })
+    }
+};
 
-let img2 = document.getElementById('cat2');
-img2.addEventListener('dblclick',like2);
-
-function like2(){
-  const option = document.getElementById('option2').firstElementChild;
-  console.log(options);
-  // option.addEventListener('click', like2);
-  option.style.color = (option.style.color == "red") ? 'black' : 'red';
-}
 
 
 
